@@ -93,12 +93,12 @@ router.post('/new', upload.array('images', 50), (req, res) => {
     
     // console.log('Featured image : ' + allImages[0].path);
 
-    // let remainingImages = '';
-    // for(let i = 1; i < allImages.length; i++) {
-    //     remainingImages += allImages[i].path;
-    //     if (i === allImages.length - 1) {
-    //     } else {remainingImages += ',,,';}
-    // }
+    let remainingImages = '';
+    for(let i = 0; i < allImages.length; i++) {
+        remainingImages += allImages[i].path;
+        if (i === allImages.length - 1) {
+        } else {remainingImages += ',,,';}
+    }
     // console.log('remaining Images : ' + remainingImages);
 
     // All Above are working perfect;  Feautured image, and remaining images;
@@ -112,7 +112,7 @@ router.post('/new', upload.array('images', 50), (req, res) => {
                 code : req.body.code , 
                 web : req.body.web ,
                 bio: req.body.bio,
-                images: allImages,
+                images: remainingImages,
             } ) 
         . then ( lastId  =>  { 
             console.log(lastId);
