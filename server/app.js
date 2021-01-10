@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 
 // Import Routes
-const townhouses = require('./routes/products');
+const townhouses = require('./routes/townhouses');
 
 const bodyParser = require("body-parser");
 
